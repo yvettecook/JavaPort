@@ -4,20 +4,15 @@ function Airport(){
 };
 
 Airport.prototype.land = function(plane) {
-	if(this.check(plane) === 'Plane not here')
-		this.planes.push(plane);
-	else return 'Plane already here';
+	if(this.isPlaneNotHere(plane)) this.planes.push(plane);
 };
 
 Airport.prototype.addToRunway = function(plane) {
-	if(this.check(plane) >= 0) return this.planes.splice(planeLocation, 1)[0];
-	else return this.check(plane);
+	if(this.isPlaneHere(plane)) return this.planes.splice(this.findPlane(plane), 1)[0];
 };
 
-Airport.prototype.check = function(plane) {
-	planeLocation = this.planes.indexOf(plane);
-	if(planeLocation >= 0) return planeLocation;
-	else return 'Plane not here';
+Airport.prototype.findPlane = function(plane) {
+	return this.planes.indexOf(plane);
 };
 
 Airport.prototype.isPlaneHere = function(plane) {

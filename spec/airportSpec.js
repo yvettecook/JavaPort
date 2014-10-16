@@ -28,7 +28,16 @@ describe ('An airport', function() {
 
 		it('can release', function() {
 			airport.land(plane);
-			expect(airport.addToRunway(plane)).toBe(plane)
+			airport.addToRunway(plane)
+			expect(airport.numberOfPlanes()).toEqual(0)
+		});
+
+		it('can release a specific plane', function() {
+			airport.land(plane);
+			airport.land(newPlane);
+			airport.land(evenNewerPlane);
+			airport.addToRunway(newPlane);
+			expect(airport.isPlaneNotHere(newPlane)).toEqual(true);
 		});
 
 		it('can tell how many planes are at the airport', function(){
@@ -40,7 +49,7 @@ describe ('An airport', function() {
 			airport.land(plane)
 			airport.land(newPlane)
 			airport.land(evenNewerPlane)
-			expect(airport.check(newPlane)).toBe(1)
+			expect(airport.findPlane(newPlane)).toBe(1)
 		});
 
 		it('can return if a plane is at the airport', function() {
@@ -55,12 +64,13 @@ describe ('An airport', function() {
 
 		it('cannot release planes that are not at the airport', function() {
 			airport.land(plane);
-			expect(airport.addToRunway(newPlane)).toBe('Plane not here');
+			expect(airport.addToRunway(newPlane)).toEqual(undefined);			
+			expect(airport.numberOfPlanes()).toEqual(1);
 		});
 
 		it('cannot land planes that are already at the airport', function(){
 			airport.land(plane)
-			expect(airport.land(plane)).toBe('Plane already here')
+			expect(airport.land(plane)).toBe(undefined)
 			expect(airport.numberOfPlanes()).toEqual(1)
 		});
 

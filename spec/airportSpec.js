@@ -43,10 +43,15 @@ describe ('An airport', function() {
 			expect(airport.check(newPlane)).toBe(1)
 		});
 
-		it('can return if a plane is not at the airport', function() {
+		it('can return if a plane is at the airport', function() {
 			airport.land(plane)
 			airport.land(newPlane)
-			expect(airport.check(evenNewerPlane)).toBe('Plane not here')
+			expect(airport.isPlaneHere(Plane)).toBe(true)
+		});
+
+
+		it('can return if a plane is not at the airport', function() {
+
 		});
 
 		it('cannot release planes that are not at the airport', function() {
@@ -57,7 +62,7 @@ describe ('An airport', function() {
 		it('cannot land planes that are already at the airport', function(){
 			airport.land(plane)
 			expect(airport.land(plane)).toBe('Plane already here')
-			expect(airport.planes.length).toEqual(1)
+			expect(airport.numberOfPlanes()).toEqual(1)
 		});
 
 	});

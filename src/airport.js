@@ -10,8 +10,7 @@ Airport.prototype.land = function(plane) {
 };
 
 Airport.prototype.addToRunway = function(plane) {
-	if(this.check(plane) >= 0)
-	 return this.planes.splice(planeLocation, 1)[0];
+	if(this.check(plane) >= 0) return this.planes.splice(planeLocation, 1)[0];
 	else return this.check(plane);
 };
 
@@ -19,6 +18,10 @@ Airport.prototype.check = function(plane) {
 	planeLocation = this.planes.indexOf(plane);
 	if(planeLocation >= 0) return planeLocation;
 	else return 'Plane not here';
+};
+
+Airport.prototype.isPlaneHere = function(plane) {
+	if(this.planes.indexOf(plane)) return true
 };
 
 Airport.prototype.checkIn = function(passenger) {

@@ -20,3 +20,11 @@ Airport.prototype.check = function(plane) {
 	if(planeLocation >= 0) return planeLocation;
 	else return 'Plane not here';
 };
+
+Airport.prototype.checkIn = function(passenger) {
+	this.passengers.push(passenger);
+};
+
+Airport.prototype.checkOut = function(passenger) {
+	this.passengers.pop();
+};

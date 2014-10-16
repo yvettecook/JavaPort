@@ -57,4 +57,21 @@ describe ('An airport', function() {
 
 	});
 
+	describe('when interacting with passengers', function() {
+
+		it('can check in', function() {
+			passenger = new Passenger;
+			airport.checkIn(passenger);
+			expect(airport.passengers).toEqual([passenger]);
+		});
+
+		it('can check out', function(){
+			passenger = new Passenger;
+			airport.checkIn(passenger);
+			airport.checkOut(passenger);
+			expect(airport.passengers).toEqual([]);
+		});
+
+	});
+
 });

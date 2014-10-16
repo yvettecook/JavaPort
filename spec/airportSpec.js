@@ -31,6 +31,11 @@ describe ('An airport', function() {
 			expect(airport.addToRunway(plane)).toBe(plane)
 		});
 
+		it('can tell how many planes are at the airport', function(){
+			airport.land(plane)
+			expect(airport.numberOfPlanes()).toEqual(1)
+		});
+
 		it('can return the location of a plane at the airport', function(){
 			airport.land(plane)
 			airport.land(newPlane)

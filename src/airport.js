@@ -28,3 +28,7 @@ Airport.prototype.checkIn = function(passenger) {
 Airport.prototype.checkOut = function(passenger) {
 	this.passengers.pop();
 };
+
+Airport.prototype.numberOfPlanes = function() {
+	return this.planes.length;
+};

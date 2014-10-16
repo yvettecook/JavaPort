@@ -49,6 +49,12 @@ describe ('An airport', function() {
 			expect(airport.addToRunway(newPlane)).toBe('Plane not here');
 		});
 
+		it('cannot land planes that are already at the airport', function(){
+			airport.land(plane)
+			expect(airport.land(plane)).toBe('Plane already here')
+			expect(airport.planes.length).toEqual(1)
+		});
+
 	});
 
 });

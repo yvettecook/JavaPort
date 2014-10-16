@@ -4,7 +4,9 @@ function Airport(){
 };
 
 Airport.prototype.land = function(plane) {
-	this.planes.push(plane);
+	if(this.check(plane) === 'Plane not here')
+		this.planes.push(plane);
+	else return 'Plane already here';
 };
 
 Airport.prototype.addToRunway = function(plane) {

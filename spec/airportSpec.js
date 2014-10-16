@@ -46,12 +46,11 @@ describe ('An airport', function() {
 		it('can return if a plane is at the airport', function() {
 			airport.land(plane)
 			airport.land(newPlane)
-			expect(airport.isPlaneHere(Plane)).toBe(true)
+			expect(airport.isPlaneHere(plane)).toBe(true)
 		});
 
-
 		it('can return if a plane is not at the airport', function() {
-
+			expect(airport.isPlaneNotHere(plane)).toBe(true);
 		});
 
 		it('cannot release planes that are not at the airport', function() {

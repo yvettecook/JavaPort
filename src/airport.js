@@ -21,7 +21,11 @@ Airport.prototype.check = function(plane) {
 };
 
 Airport.prototype.isPlaneHere = function(plane) {
-	if(this.planes.indexOf(plane)) return true
+	if(this.planes.indexOf(plane) !== -1) return true
+};
+
+Airport.prototype.isPlaneNotHere = function(plane) {
+	if(this.planes.indexOf(plane) === -1) return true
 };
 
 Airport.prototype.checkIn = function(passenger) {
